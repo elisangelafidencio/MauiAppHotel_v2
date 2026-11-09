@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F0F4F8">
+
+    <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center">
+
+        <!-- Título -->
+        <Label Text="{Binding QuartoSelecionado.Descricao}" 
+               FontFamily="Kalam" FontSize="45" TextColor="#003366" HorizontalOptions="Center" />
+
+        <!-- Card de Pessoas -->
+        <Frame Padding="20" CornerRadius="15" HasShadow="True" BorderColor="Transparent" BackgroundColor="White">
+            <Grid ColumnDefinitions="*, *">
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label Text="Adultos" TextColor="Gray" />
+                    <Label Text="{Binding QntAdultos}" FontSize="24" FontAttributes="Bold" TextColor="#003366" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label Text="Crianças" TextColor="Gray" />
+                    <Label Text="{Binding QntCriancas}" FontSize="24" FontAttributes="Bold" TextColor="#003366" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Frame>
+
+        <!-- Card de Datas -->
+        <Frame Padding="20" CornerRadius="15" HasShadow="True" BorderColor="Transparent" BackgroundColor="White">
+            <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in:" HorizontalOptions="Center" TextColor="Gray"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out:" HorizontalOptions="Center" TextColor="Gray"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataCheckIn, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#003366" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataCheckOut, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#003366" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </Grid>
+        </Frame>
+
+        <!-- Card do Valor Total -->
+        <Frame Padding="20" CornerRadius="15" HasShadow="True" BorderColor="Transparent" BackgroundColor="#003366">
+            <Label Text="{Binding ValorTotal, StringFormat='Valor Total: R$ {0:F2}'}" 
+                   FontSize="22" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+        </Frame>
+
+        <Button Text="⬅ Voltar" Clicked="OnVoltarClicked" BackgroundColor="#003366" TextColor="White" CornerRadius="10" HeightRequest="50" WidthRequest="200" HorizontalOptions="Center" Margin="0,20,0,0"/>
+    </VerticalStackLayout>
+</ContentPage>
